@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Caffee Phố Trảng - Quán cà phê đặc sản tại Đồng Nai">
+<title>Caffee Phố Trảng | Quán Cà Phê Đặc Sản</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+:root{
+  --cream:#FAF7F2;
+  --white:#FFFFFF;
+  --espresso:#2C1A11;
+  --dark-banner:#3B2316;
+  --brand:#7C4D2B;
+  --brand-hover:#5E381E;
+  --text-body:#5C4B42;
+  --text-heading:#2C1A11;
+  --muted:#9A8A7A;
+  --gold:#D4A843;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *, *::before, *::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+body{
+  font-family:'Plus Jakarta Sans',system-ui,sans-serif;
+  background:var(--cream);
+  color:var(--text-body);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4,h5,h6{font-family:'Playfair Display',Georgia,serif;color:var(--text-heading);font-weight:500}
+.font-serif{font-family:'Playfair Display',Georgia,serif}
+.text-brand{color:var(--brand)}
+.text-brand-hover:hover{color:var(--brand-hover)}
+.bg-brand{background:var(--brand)}
+.bg-brand-hover:hover{background:var(--brand-hover)}
+.bg-espresso{background:var(--espresso)}
+.bg-dark-banner{background:var(--dark-banner)}
+.border-brand{border-color:var(--brand)}
+.shadow-warm{box-shadow:0 4px 24px -4px rgba(60,35,22,.12),0 2px 8px -2px rgba(60,35,22,.08)}
+.card-surface{background:var(--white);border-radius:16px;box-shadow:0 2px 16px -4px rgba(60,35,22,.1),0 1px 4px -2px rgba(60,35,22,.06)}
+.btn-primary{
+  background:var(--brand);color:var(--white);
+  padding:14px 28px;border-radius:9999px;font-weight:600;font-size:14px;
+  transition:all .25s ease;display:inline-flex;align-items:center;gap:8px;
+}
+.btn-primary:hover{background:var(--brand-hover);transform:translateY(-2px);box-shadow:0 8px 20px -4px rgba(124,77,43,.4)}
+.btn-outline{
+  border:2px solid var(--brand);color:var(--brand);background:transparent;
+  padding:14px 28px;border-radius:9999px;font-weight:600;font-size:14px;
+  transition:all .25s ease;display:inline-flex;align-items:center;gap:8px;
+}
+.btn-outline:hover{background:var(--brand);color:var(--white)}
+.btn-circle{
+  width:44px;height:44px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;
+  background:var(--brand);color:var(--white);transition:all .25s ease;
+}
+.btn-circle:hover{background:var(--brand-hover);transform:scale(1.05)}
+.btn-circle-sm{
+  width:36px;height:36px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;
+  background:var(--brand);color:var(--white);transition:all .25s ease;
+}
+.btn-circle-sm:hover{background:var(--brand-hover);transform:scale(1.05)}
+.btn-circle-white{
+  width:44px;height:44px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;
+  background:var(--white);color:var(--brand);border:2px solid var(--brand);transition:all .25s ease;
+}
+.btn-circle-white:hover{background:var(--brand);color:var(--white)}
+.input-pill{
+  background:var(--white);border:none;border-radius:9999px;padding:14px 24px;font-size:15px;color:var(--text-heading);
+  width:100%;outline:none;transition:box-shadow .25s;
+}
+.input-pill::placeholder{color:var(--muted)}
+.input-pill:focus{box-shadow:0 0 0 3px rgba(124,77,43,.2)}
+.section-divider{width:60px;height:2px;background:linear-gradient(90deg,var(--brand),transparent);margin:16px 0}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.reveal.is-visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}.reveal-delay-4{transition-delay:.4s}.reveal-delay-5{transition-delay:.5s}
+.organic-wave{
+  position:absolute;right:0;top:0;bottom:0;width:60%;max-width:300px;min-width:120px;
+  background:var(--cream);
+  clip-path:polygon(35% 0,100% 0,100% 100%,0 100%);
+}
+@media(max-width:1024px){.organic-wave{display:none}}
+.carousel-dots{display:flex;gap:8px;justify-content:center}
+.carousel-dot{width:10px;height:10px;border-radius:50%;background:var(--muted);transition:all .3s;border:none;cursor:pointer}
+.carousel-dot.active{background:var(--brand);width:28px;border-radius:9999px}
+.nav-link{position:relative;color:var(--text-body);font-weight:500;font-size:14px;transition:color .25s;padding:4px 0}
+.nav-link::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:var(--brand);transition:width .3s cubic-bezier(.16,1,.3,1)}
+.nav-link:hover,.nav-link.active{color:var(--brand)}
+.nav-link:hover::after,.nav-link.active::after{width:100%}
+.icon-grid-item{display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px;color:var(--text-body);font-size:13px;font-weight:500;text-align:center;transition:color .25s}
+.icon-grid-item:hover{color:var(--brand)}
+.icon-grid-item svg{stroke:var(--brand);width:24px;height:24px}
+.drink-card{background:var(--white);border-radius:16px;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.drink-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px -8px rgba(60,35,22,.15)}
+.drink-card-img{aspect-ratio:1/1;object-fit:cover;width:100%}
+.drink-card-content{position:relative;padding:16px}
+.drink-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:500;color:var(--text-heading)}
+.testimonial-card{background:var(--white);border-radius:24px;padding:40px 32px;position:relative}
+.testimonial-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:10}
+.testimonial-nav-left{left:-22px}.testimonial-nav-right{right:-22px}
+@media(max-width:768px){.testimonial-nav-left{left:-12px}.testimonial-nav-right{right:-12px}}
+.footer-cutout{position:absolute;bottom:-80px;right:-40px;width:280px;height:280px;pointer-events:none}
+@media(max-width:768px){.footer-cutout{width:180px;height:180px;bottom:-40px;right:-20px}}
+.leaf-watermark{position:absolute;right:-40px;top:50%;transform:translateY(-50%);opacity:.06;width:200px;height:200px;pointer-events:none}
+@media(max-width:768px){.leaf-watermark{display:none}}
+.util-bar{font-size:13px;color:rgba(250,247,242,.7)}
+.util-link:hover{color:var(--white)}
+.social-icon{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;transition:all .25s;color:var(--white)}
+.social-icon:hover{background:var(--brand);transform:translateY(-2px)}
+.focus-visible:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* Language Switcher */
+.lang-switcher{position:relative;display:inline-flex;align-items:center;gap:2px;background:rgba(60,35,22,.08);border-radius:9999px;padding:2px}
+.lang-btn{padding:8px 16px;border-radius:9999px;font-size:13px;font-weight:600;color:var(--muted);background:transparent;transition:all .25s ease;white-space:nowrap}
+.lang-btn.active{background:var(--brand);color:var(--white);box-shadow:0 2px 8px -2px rgba(124,77,43,.4)}
+.lang-btn:hover:not(.active){color:var(--text-heading)}
+@media(max-width:768px){.lang-btn{padding:6px 12px;font-size:12px}}
+</style>
+</head>
+<body>
+
+<!-- ===== TOP UTILITY BAR ===== -->
+<div class="util-bar bg-espresso px-6 py-3" role="region" aria-label="Contact information">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 md:gap-6">
+    <div class="flex flex-wrap items-center gap-4 md:gap-6 text-sm">
+      <a href="https://maps.google.com/?q=T%E1%BB%93+14+Khu+Ph%E1%BB%91+3A+Ph%E1%BB%83ng+Tr%E1%BA%AFng+%C4%90%C3%A0i+Th%C3%A0nh+Ph%E1%BB%91+%C4%90%E1%BB%93ng+Nai" target="_blank" rel="noopener" class="util-link flex items-center gap-1.5 hover:underline">
+        <i data-lucide="map-pin" class="w-4 h-4 flex-shrink-0"></i>
+        <span data-i18n="address">Tồ 14, Khu Phố 3A, Phường Trảng Dài, Thành Phố Đồng Nai</span>
+      </a>
+      <a href="tel:+84902950104" class="util-link flex items-center gap-1.5 hover:underline">
+        <i data-lucide="phone" class="w-4 h-4 flex-shrink-0"></i>
+        <span>+84 902950104</span>
+      </a>
+      <a href="mailto:dotruong.ntev@gmail.com" class="util-link flex items-center gap-1.5 hover:underline">
+        <i data-lucide="mail" class="w-4 h-4 flex-shrink-0"></i>
+        <span>dotruong.ntev@gmail.com</span>
+      </a>
+    </div>
+    <div class="flex items-center gap-2" role="list" aria-label="Social media links">
+      <a href="#" class="social-icon" aria-label="Instagram"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+      <a href="#" class="social-icon" aria-label="Facebook"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+      <a href="#" class="social-icon" aria-label="TikTok"><i data-lucide="music" class="w-5 h-5"></i></a>
+      <a href="#" class="social-icon" aria-label="YouTube"><i data-lucide="youtube" class="w-5 h-5"></i></a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN NAVBAR ===== -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-[rgba(60,35,22,.08)]" role="banner">
+  <nav class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6" aria-label="Main navigation">
+    <!-- Logo -->
+    <a href="#" class="flex items-center gap-3 flex-shrink-0" aria-label="Caffee Phố Trảng Home">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="text-brand">
+        <path d="M8 28C8 31.3137 10.6863 34 14 34H26C29.3137 34 32 31.3137 32 28V18L28 12H12L8 18V28Z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M14 18V12C14 9.79086 15.7909 8 18 8H22C24.2091 8 26 9.79086 26 12V18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M16 22V26" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M24 22V26" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <ellipse cx="20" cy="15" rx="3" ry="2" stroke="currentColor" stroke-width="1.5" fill="currentColor" fill-opacity="0.3"/>
+      </svg>
+      <div class="hidden sm:block">
+        <div class="font-serif text-brand text-lg leading-tight">Caffee Phố Trảng</div>
+        <div class="text-[10px] uppercase tracking-widest text-muted font-medium" data-i18n="tagline">PREMIUM COFFEE SHOP</div>
+      </div>
+    </a>
+
+    <!-- Desktop Nav Links -->
+    <div class="hidden md:flex items-center gap-8" role="navigation" aria-label="Primary navigation">
+      <a href="#" class="nav-link active" aria-current="page" data-i18n="nav.home">Home</a>
+      <a href="#menu" class="nav-link" data-i18n="nav.menu">Menu</a>
+      <a href="#about" class="nav-link" data-i18n="nav.about">About Us</a>
+      <a href="#locations" class="nav-link" data-i18n="nav.locations">Locations</a>
+      <a href="#events" class="nav-link" data-i18n="nav.events">Events</a>
+      <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
+    </div>
+
+    <!-- Right Actions -->
+    <div class="flex items-center gap-3 md:gap-4 w-full md:w-auto justify-end">
+      <button class="btn-circle-white p-2 md:p-2.5 focus-visible" aria-label="Search">
+        <i data-lucide="search" class="w-5 h-5"></i>
+      </button>
+      <a href="#order" class="hidden sm:inline-flex btn-primary focus-visible" data-i18n="nav.order">Order Online <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+      
+      <!-- Language Switcher -->
+      <div class="lang-switcher hidden sm:inline-flex" role="group" aria-label="Language selection">
+        <button class="lang-btn active" data-lang="vi" aria-pressed="true">VI</button>
+        <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+
+      <!-- Mobile menu button -->
+      <button class="md:hidden btn-circle-white p-2" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="md:hidden hidden px-6 pb-6 border-b border-[rgba(60,35,22,.08)]" role="navigation" aria-label="Mobile navigation">
+    <div class="flex flex-col gap-2 pt-4">
+      <a href="#" class="nav-link py-2 active" aria-current="page" data-i18n="nav.home">Home</a>
+      <a href="#menu" class="nav-link py-2" data-i18n="nav.menu">Menu</a>
+      <a href="#about" class="nav-link py-2" data-i18n="nav.about">About Us</a>
+      <a href="#locations" class="nav-link py-2" data-i18n="nav.locations">Locations</a>
+      <a href="#events" class="nav-link py-2" data-i18n="nav.events">Events</a>
+      <a href="#contact" class="nav-link py-2" data-i18n="nav.contact">Contact</a>
+      <a href="#order" class="btn-primary justify-center mt-2" data-i18n="nav.order">Order Online <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+      
+      <!-- Mobile Language Switcher -->
+      <div class="lang-switcher mt-4 justify-center" role="group" aria-label="Language selection">
+        <button class="lang-btn active" data-lang="vi" aria-pressed="true">VI</button>
+        <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+
+<!-- ===== HERO SECTION ===== -->
+<section class="relative min-h-[90vh] flex items-center overflow-hidden" aria-labelledby="hero-heading">
+  <div class="max-w-7xl mx-auto px-6 py-20 w-full grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+    <!-- Left Column -->
+    <div class="relative z-10 reveal">
+      <p class="uppercase tracking-widest text-xs md:text-sm font-semibold text-brand mb-4" data-i18n="hero.eyebrow">PREMIUM COFFEE EXPERIENCE</p>
+      <h1 id="hero-heading" class="font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.05] font-medium text-espresso mb-6">
+        <span data-i18n="hero.headline.part1">More Than </span><span class="italic text-brand" data-i18n="hero.headline.part2">Just Coffee</span>
+        <svg class="inline-block w-10 h-10 ml-2 -mt-2 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+      </h1>
+      <p class="text-lg md:text-xl text-muted max-w-xl mb-8 leading-relaxed" data-i18n="hero.subtitle">Handcrafted beverages, artisan pastries, and a warm atmosphere designed for connection. Every cup tells a story.</p>
+      <div class="flex flex-wrap gap-4 mb-12">
+        <a href="#order" class="btn-primary focus-visible" data-i18n="hero.cta.primary">Order Online <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+        <a href="#locations" class="btn-outline focus-visible" data-i18n="hero.cta.secondary">Find a Café <i data-lucide="map-pin" class="w-4 h-4"></i></a>
+      </div>
+      <!-- Icon Row -->
+      <div class="grid grid-cols-4 gap-4 md:gap-6 text-center" role="list" aria-label="Coffee lounge features">
+        <div class="icon-grid-item" role="listitem" data-i18n="hero.features.specialty" data-i18n-attr="title:Specialty Coffee">Specialty Coffee</div>
+        <div class="icon-grid-item" role="listitem" data-i18n="hero.features.fresh" data-i18n-attr="title:Fresh Food">Fresh Food</div>
+        <div class="icon-grid-item" role="listitem" data-i18n="hero.features.work" data-i18n-attr="title:Work Friendly">Work Friendly</div>
+        <div class="icon-grid-item" role="listitem" data-i18n="hero.features.cozy" data-i18n-attr="title:Cozy Ambience">Cozy Ambience</div>
+      </div>
+    </div>
+
+    <!-- Right Column - Hero Image with Organic Wave -->
+    <div class="relative reveal reveal-delay-1" aria-hidden="true">
+      <div class="relative h-[600px] md:h-[700px] lg:h-[800px] rounded-3xl overflow-hidden shadow-warm">
+        <!-- Desktop Hero Image -->
+        <div class="hidden lg:block absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1600&q=80"
+            alt=""
+            class="w-full h-full object-cover"
+            loading="eager"
+          >
+        </div>
+        <!-- Mobile Hero Image -->
+        <div class="lg:hidden absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=800&q=80"
+            alt=""
+            class="w-full h-full object-cover"
+            loading="eager"
+          >
+        </div>
+        <!-- Organic Wave Mask (Desktop only) -->
+        <div class="organic-wave hidden lg:block" aria-hidden="true"></div>
+        <!-- Carousel Dots -->
+        <div class="absolute bottom-8 right-8 carousel-dots" role="tablist" aria-label="Hero carousel">
+          <button class="carousel-dot active" role="tab" aria-selected="true" aria-label="Slide 1" data-slide="0"></button>
+          <button class="carousel-dot" role="tab" aria-selected="false" aria-label="Slide 2" data-slide="1"></button>
+          <button class="carousel-dot" role="tab" aria-selected="false" aria-label="Slide 3" data-slide="2"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SIGNATURE DRINKS ===== -->
+<section id="menu" class="py-20 md:py-28 lg:py-32 px-6" aria-labelledby="drinks-heading">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12 reveal">
+      <div>
+        <p class="uppercase tracking-widest text-xs font-semibold text-brand mb-2" data-i18n="drinks.eyebrow">Our Menu</p>
+        <h2 id="drinks-heading" class="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-espresso" data-i18n="drinks.title">Our Signature Drinks</h2>
+      </div>
+      <a href="#full-menu" class="btn-outline text-sm px-6 py-3 self-end focus-visible" data-i18n="drinks.viewAll">View Full Menu <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+    </div>
+    <div class="section-divider w-16 mb-10 reveal reveal-delay-1"></div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6" role="list" aria-label="Signature drinks">
+      <!-- Drink 1 -->
+      <article class="drink-card reveal reveal-delay-1" role="listitem">
+        <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=600&q=80" alt="" class="drink-card-img" loading="lazy">
+        <div class="drink-card-content">
+          <h3 class="drink-title" data-i18n="drinks.items.cappuccino">Classic Cappuccino</h3>
+          <button class="btn-circle-sm absolute bottom-4 right-4 focus-visible" aria-label="Add Classic Cappuccino to order" data-i18n-attr="aria-label:Add Classic Cappuccino to order">
+            <i data-lucide="plus" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </article>
+      <!-- Drink 2 -->
+      <article class="drink-card reveal reveal-delay-2" role="listitem">
+        <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=600&q=80" alt="" class="drink-card-img" loading="lazy">
+        <div class="drink-card-content">
+          <h3 class="drink-title" data-i18n="drinks.items.macchiato">Caramel Macchiato</h3>
+          <button class="btn-circle-sm absolute bottom-4 right-4 focus-visible" aria-label="Add Caramel Macchiato to order" data-i18n-attr="aria-label:Add Caramel Macchiato to order">
+            <i data-lucide="plus" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </article>
+      <!-- Drink 3 -->
+      <article class="drink-card reveal reveal-delay-3" role="listitem">
+        <img src="https://images.unsplash.com/photo-1515823064-d6e0c04616fa?auto=format&fit=crop&w=600&q=80" alt="" class="drink-card-img" loading="lazy">
+        <div class="drink-card-content">
+          <h3 class="drink-title" data-i18n="drinks.items.matcha">Matcha Latte</h3>
+          <button class="btn-circle-sm absolute bottom-4 right-4 focus-visible" aria-label="Add Matcha Latte to order" data-i18n-attr="aria-label:Add Matcha Latte to order">
+            <i data-lucide="plus" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </article>
+      <!-- Drink 4 -->
+      <article class="drink-card reveal reveal-delay-4" role="listitem">
+        <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=600&q=80" alt="" class="drink-card-img" loading="lazy">
+        <div class="drink-card-content">
+          <h3 class="drink-title" data-i18n="drinks.items.mocha">Mocha Delight</h3>
+          <button class="btn-circle-sm absolute bottom-4 right-4 focus-visible" aria-label="Add Mocha Delight to order" data-i18n-attr="aria-label:Add Mocha Delight to order">
+            <i data-lucide="plus" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </article>
+      <!-- Drink 5 -->
+      <article class="drink-card reveal reveal-delay-5" role="listitem">
+        <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=600&q=80" alt="" class="drink-card-img" loading="lazy">
+        <div class="drink-card-content">
+          <h3 class="drink-title" data-i18n="drinks.items.coldbrew">Cold Brew</h3>
+          <button class="btn-circle-sm absolute bottom-4 right-4 focus-visible" aria-label="Add Cold Brew to order" data-i18n-attr="aria-label:Add Cold Brew to order">
+            <i data-lucide="plus" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT SECTION ===== -->
+<section id="about" class="py-20 md:py-28 lg:py-32 px-6 bg-white" aria-labelledby="about-heading">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <!-- Left: Image -->
+      <div class="relative reveal overflow-hidden rounded-3xl shadow-warm" style="aspect-ratio:4/3;">
+        <img
+          src="https://images.unsplash.com/photo-1559056199-641a0ac8b55c?auto=format&fit=crop&w=1200&q=80"
+          alt="Caffee Phố Trảng interior with cozy seating and warm lighting"
+          class="w-full h-full object-cover transition-transform duration-700 hover:scale-[1.02]"
+          loading="lazy"
+        >
+        <!-- Leaf Watermark -->
+        <svg class="leaf-watermark" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M100 10C130 20 150 50 160 90C165 110 155 130 130 145C115 155 90 150 80 130C70 110 80 90 90 70C85 60 95 40 100 30C105 40 115 60 110 70C120 90 110 110 90 130C80 140 60 135 50 115C45 105 55 85 65 70C60 60 50 40 60 30C70 20 85 15 100 10Z" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M100 10V90" stroke="currentColor" stroke-width="1"/>
+          <path d="M100 90C110 100 115 115 110 130" stroke="currentColor" stroke-width="1"/>
+          <path d="M100 90C90 100 85 115 90 130" stroke="currentColor" stroke-width="1"/>
+        </svg>
+      </div>
+
+      <!-- Right: Content -->
+      <div class="reveal reveal-delay-1">
+        <p class="uppercase tracking-widest text-xs font-semibold text-brand mb-3" data-i18n="about.eyebrow">THE COFFEE LOUNGE</p>
+        <h2 id="about-heading" class="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-espresso mb-6 leading-tight">
+          <span data-i18n="about.headline.part1">A Modern Café for </span><span class="italic text-brand" data-i18n="about.headline.part2">Coffee Lovers</span>
+        </h2>
+        <p class="text-muted text-lg leading-relaxed mb-8 max-w-xl" data-i18n="about.description">Founded in 2019, Caffee Phố Trảng began with a simple mission: to create a space where exceptional coffee meets genuine hospitality. We source our beans directly from sustainable farms across Colombia, Ethiopia, and Guatemala, roasting them in-house to bring out their unique character.</p>
+        <a href="#our-story" class="btn-primary inline-flex focus-visible" data-i18n="about.cta">Our Story <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VALUE PROPOSITION BANNER ===== -->
+<section class="py-20 md:py-28 px-6" aria-labelledby="values-heading">
+  <div class="max-w-7xl mx-auto">
+    <div class="bg-dark-banner rounded-[24px] p-8 md:p-12 lg:p-16 text-center reveal">
+      <h2 id="values-heading" class="font-serif text-3xl md:text-4xl font-medium text-white mb-12" data-i18n="values.title">What Makes Us Special</h2>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
+        <div class="relative">
+          <div class="border-r border-[rgba(255,255,255,.1)] last:border-0 md:border-r md:border-[rgba(255,255,255,.1)] md:last:border-0 pb-8 md:pb-0">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-white/10 mb-4 text-brand">
+              <i data-lucide="bean" class="w-7 h-7"></i>
+            </div>
+            <h3 class="font-serif text-xl font-medium text-white mb-2" data-i18n="values.items.beans.title">Premium Beans</h3>
+            <p class="text-[rgba(255,255,255,.7)] text-sm" data-i18n="values.items.beans.desc">Sourced Globally</p>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="border-r border-[rgba(255,255,255,.1)] last:border-0 md:border-r md:border-[rgba(255,255,255,.1)] md:last:border-0 pb-8 md:pb-0">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-white/10 mb-4 text-brand">
+              <i data-lucide="award" class="w-7 h-7"></i>
+            </div>
+            <h3 class="font-serif text-xl font-medium text-white mb-2" data-i18n="values.items.baristas.title">Expert Baristas</h3>
+            <p class="text-[rgba(255,255,255,.7)] text-sm" data-i18n="values.items.baristas.desc">Trained to Perfection</p>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="border-r border-[rgba(255,255,255,.1)] last:border-0 md:border-r md:border-[rgba(255,255,255,.1)] md:last:border-0 pb-8 md:pb-0">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-white/10 mb-4 text-brand">
+              <i data-lucide="leaf" class="w-7 h-7"></i>
+            </div>
+            <h3 class="font-serif text-xl font-medium text-white mb-2" data-i18n="values.items.ingredients.title">Fresh Ingredients</h3>
+            <p class="text-[rgba(255,255,255,.7)] text-sm" data-i18n="values.items.ingredients.desc">Quality Guaranteed</p>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="border-r border-[rgba(255,255,255,.1)] last:border-0 md:border-r md:border-[rgba(255,255,255,.1)] md:last:border-0 pb-8 md:pb-0">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-white/10 mb-4 text-brand">
+              <i data-lucide="users" class="w-7 h-7"></i>
+            </div>
+            <h3 class="font-serif text-xl font-medium text-white mb-2" data-i18n="values.items.space.title">A Space to Connect</h3>
+            <p class="text-[rgba(255,255,255,.7)] text-sm" data-i18n="values.items.space.desc">Relax & Unwind</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BESTSELLERS & TESTIMONIALS ===== -->
+<section class="py-20 md:py-28 lg:py-32 px-6" aria-labelledby="bestsellers-heading">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid lg:grid-cols-[60%_40%] gap-12 lg:gap-16">
+      <!-- Left: Bestsellers -->
+      <div class="reveal">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
+          <div>
+            <p class="uppercase tracking-widest text-xs font-semibold text-brand mb-2" data-i18n="bestsellers.eyebrow">Bestsellers</p>
+            <h2 id="bestsellers-heading" class="font-serif text-3xl md:text-4xl font-medium text-espresso" data-i18n="bestsellers.title">Freshly Made Delights</h2>
+          </div>
+          <a href="#full-menu" class="btn-outline text-sm px-6 py-3 self-end focus-visible" data-i18n="bestsellers.viewAll">View All <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+        </div>
+        <div class="section-divider w-16 mb-8"></div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6" role="list" aria-label="Bestseller food items">
+          <!-- Item 1 -->
+          <article class="card-surface reveal reveal-delay-1 overflow-hidden" role="listitem">
+            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80" alt="Butter Croissant" class="w-full h-48 object-cover" loading="lazy">
+            <div class="p-6 relative">
+              <h3 class="font-serif text-lg font-medium text-espresso mb-2" data-i18n="bestsellers.items.croissant.title">Butter Croissant</h3>
+              <p class="text-muted text-sm mb-4" data-i18n="bestsellers.items.croissant.desc">Flaky, buttery, baked fresh daily</p>
+              <button class="btn-circle absolute bottom-6 right-6 focus-visible" aria-label="Add Butter Croissant to order" data-i18n-attr="aria-label:Add Butter Croissant to order">
+                <i data-lucide="plus" class="w-5 h-5"></i>
+              </button>
+            </div>
+          </article>
+          <!-- Item 2 -->
+          <article class="card-surface reveal reveal-delay-2 overflow-hidden" role="listitem">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80" alt="Chocolate Cake" class="w-full h-48 object-cover" loading="lazy">
+            <div class="p-6 relative">
+              <h3 class="font-serif text-lg font-medium text-espresso mb-2" data-i18n="bestsellers.items.cake.title">Chocolate Cake</h3>
+              <p class="text-muted text-sm mb-4" data-i18n="bestsellers.items.cake.desc">Rich Valrhona chocolate, fudgy center</p>
+              <button class="btn-circle absolute bottom-6 right-6 focus-visible" aria-label="Add Chocolate Cake to order" data-i18n-attr="aria-label:Add Chocolate Cake to order">
+                <i data-lucide="plus" class="w-5 h-5"></i>
+              </button>
+            </div>
+          </article>
+          <!-- Item 3 -->
+          <article class="card-surface reveal reveal-delay-3 overflow-hidden" role="listitem">
+            <img src="https://images.unsplash.com/photo-1603046891741-2579ba2e4a13?auto=format&fit=crop&w=600&q=80" alt="Grilled Veg Sandwich" class="w-full h-48 object-cover" loading="lazy">
+            <div class="p-6 relative">
+              <h3 class="font-serif text-lg font-medium text-espresso mb-2" data-i18n="bestsellers.items.sandwich.title">Grilled Veg Sandwich</h3>
+              <p class="text-muted text-sm mb-4" data-i18n="bestsellers.items.sandwich.desc">Seasonal vegetables, herb aioli, sourdough</p>
+              <button class="btn-circle absolute bottom-6 right-6 focus-visible" aria-label="Add Grilled Veg Sandwich to order" data-i18n-attr="aria-label:Add Grilled Veg Sandwich to order">
+                <i data-lucide="plus" class="w-5 h-5"></i>
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Right: Testimonials -->
+      <div class="reveal reveal-delay-1 relative">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
+          <div>
+            <p class="uppercase tracking-widest text-xs font-semibold text-brand mb-2" data-i18n="testimonials.eyebrow">Testimonials</p>
+            <h2 class="font-serif text-3xl md:text-4xl font-medium text-espresso" data-i18n="testimonials.title">What Our Guests Say</h2>
+          </div>
+        </div>
+        <div class="section-divider w-16 mb-8"></div>
+
+        <!-- Testimonial Carousel -->
+        <div class="testimonial-card relative" role="region" aria-label="Guest testimonials" aria-roledescription="carousel">
+          <div class="testimonial-track" data-testimonial-track>
+            <!-- Testimonial 1 -->
+            <div class="testimonial-slide" data-slide="0" role="group" aria-roledescription="slide" aria-label="Emily Carter testimonial">
+              <div class="flex flex-col items-center text-center">
+                <div class="w-20 h-20 rounded-full bg-[rgba(124,77,43,.1)] flex items-center justify-center mb-6 overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80" alt="Emily Carter" class="w-full h-full object-cover">
+                </div>
+                <div class="flex items-center justify-center gap-1 mb-4" aria-label="5 star rating">
+                  <i data-lucide="star" class="w-5 h-5 fill-gold text-gold"></i>
+                  <i data-lucide="star" class="w-5 h-5 fill-gold text-gold"></i>
+                  <i data-lucide="star" class="w-5 h-5 fill-gold text-gold"></i>
+                  <i data-lucide="star" class="w-5 h-5 fill-gold text-gold"></i>
+                  <i data-lucide="star" class="w-5 h-5 fill-gold text-gold"></i>
+                </div>
+                <blockquote class="font-serif italic text-xl md:text-2xl text-espresso leading-relaxed mb-4 max-w-lg" data-i18n="testimonials.items.emily">"Caffee Phố Trảng has become my second home. The cappuccino is perfection, and the atmosphere makes every visit feel like a mini vacation."</blockquote>
+                <cite class="font-medium text-brand">— Emily Carter</cite>
+              </div>
+            </div>
+            <!-- Testimonial 2 -->
+            <div class="testimonial-slide hidden" data-slide="1" role="group" aria-roledescription="slide" aria-label="James Mitchell testimonial">
+              <div class="flex flex-col items-center text-center">
+                <div class="w-20 h-20 rounded-full bg-[rgba(124,77,43,.1)] flex items-center justify-center mb-6 overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="James Mitchell" class="w-full h-full object-cover">
+                </div>
+                <div class="flex items-center justify-center gap-1 mb-4" aria-label="5 star rating">
+                  <i data-lucide="star" class="w-5 h-5 fill-gold text-gold"></i>
+                  <i data-lucide="star" class="w-5 h-5 fill-gold text-gold"></i>
+                  <i data-lucide="star" class="w-5 h-5 fill-gold text-gold"></i>
+                  <i data-lucide="star" class="w-5 h-5 fill-gold text-gold"></i>
+                  <i data-lucide="star" class="w-5 h-5 fill-gold text-gold"></i>
+                </div>
+                <blockquote class="font-serif italic text-xl md:text-2xl text-espresso leading-relaxed mb-4 max-w-lg" data-i18n="testimonials.items.james">"Best matcha latte in the city. The baristas remember my order, and the grilled veg sandwich is my go-to lunch. Highly recommend!"</blockquote>
+                <cite class="font-medium text-brand">— James Mitchell</cite>
+              </div>
+            </div>
+            <!-- Testimonial 3 -->
+            <div class="testimonial-slide hidden" data-slide="2" role="group" aria-roledescription="slide" aria-label="Sophia Chen testimonial">
+              <div class="flex flex-col items-center text-center">
+                <div class="w-20 h-20 rounded-full bg-[rgba(124,77,43,.1)] flex items-center justify-center mb-6 overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=80" alt="Sophia Chen" class="w-full h-full object-cover">
+                </div>
+                <div class="flex items-center justify-center gap-1 mb-4" aria-label="5 star rating">
+                  <i data-lucide="star" class="w-5 h-5 fill-gold text-gold"></i>
+                  <i data-lucide="star" class="w-5 h-5 fill-gold text-gold"></i>
+                  <i data-lucide="star" class="w-5 h-5 fill-gold text-gold"></i>
+                  <i data-lucide="star" class="w-5 h-5 fill-gold text-gold"></i>
+                  <i data-lucide="star" class="w-5 h-5 fill-gold text-gold"></i>
+                </div>
+                <blockquote class="font-serif italic text-xl md:text-2xl text-espresso leading-relaxed mb-4 max-w-lg" data-i18n="testimonials.items.sophia">"Perfect spot for remote work. Fast WiFi, great coffee, and the chocolate cake is to die for. The staff makes you feel like family."</blockquote>
+                <cite class="font-medium text-brand">— Sophia Chen</cite>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation Arrows -->
+          <button class="testimonial-nav testimonial-nav-left btn-circle-white focus-visible" aria-label="Previous testimonial" data-testimonial-prev data-i18n-attr="aria-label:Previous testimonial">
+            <i data-lucide="chevron-left" class="w-5 h-5"></i>
+          </button>
+          <button class="testimonial-nav testimonial-nav-right btn-circle-white focus-visible" aria-label="Next testimonial" data-testimonial-next data-i18n-attr="aria-label:Next testimonial">
+            <i data-lucide="chevron-right" class="w-5 h-5"></i>
+          </button>
+
+          <!-- Pagination Dots -->
+          <div class="carousel-dots mt-8" role="tablist" aria-label="Testimonial pagination" data-testimonial-dots>
+            <button class="carousel-dot active" role="tab" aria-selected="true" aria-label="Testimonial 1" data-dot="0"></button>
+            <button class="carousel-dot" role="tab" aria-selected="false" aria-label="Testimonial 2" data-dot="1"></button>
+            <button class="carousel-dot" role="tab" aria-selected="false" aria-label="Testimonial 3" data-dot="2"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NEWSLETTER FOOTER BANNER ===== -->
+<section class="py-20 md:py-28 lg:py-32 px-6 relative" aria-labelledby="newsletter-heading">
+  <div class="max-w-7xl mx-auto">
+    <div class="bg-dark-banner rounded-[24px] p-8 md:p-12 lg:p-16 relative overflow-hidden reveal">
+      <!-- Cutout Image -->
+      <div class="footer-cutout hidden lg:block" aria-hidden="true">
+        <img
+          src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=800&q=80"
+          alt=""
+          class="w-full h-full object-cover rounded-[24px] shadow-2xl"
+        >
+      </div>
+
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 relative z-10">
+        <!-- Left Content -->
+        <div class="flex-1 max-w-xl">
+          <h2 id="newsletter-heading" class="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-white mb-6 leading-tight">
+            <span data-i18n="newsletter.headline.part1">Stay in the </span><span class="italic text-brand" data-i18n="newsletter.headline.part2">Coffee Loop!</span>
+          </div>
+          <div class="w-12 h-[2px] bg-white/20 mb-6 lg:hidden"></div>
+        </div>
+
+        <!-- Vertical Divider (Desktop) -->
+        <div class="hidden lg:block w-[2px] h-32 bg-white/20"></div>
+
+        <!-- Right: Form -->
+        <div class="flex-1 max-w-md w-full">
+          <p class="text-[rgba(255,255,255,.7)] text-base mb-6" data-i18n="newsletter.description">Get exclusive offers, new drink alerts, and brewing tips delivered straight to your inbox. No spam, just good coffee.</p>
+          <form class="flex gap-3" aria-label="Newsletter subscription">
+            <label for="email" class="sr-only" data-i18n="newsletter.emailLabel">Email address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter your email"
+              class="input-pill flex-1 focus-visible"
+              required
+              autocomplete="email"
+              data-i18n-attr="placeholder:Enter your email"
+            >
+            <button type="submit" class="btn-primary p-3 focus-visible" aria-label="Subscribe" data-i18n-attr="aria-label:Subscribe">
+              <i data-lucide="send" class="w-5 h-5"></i>
+            </button>
+          </form>
+          <p class="text-[rgba(255,255,255,.5)] text-xs mt-4 text-center" data-i18n="newsletter.privacy">By subscribing, you agree to our <a href="#" class="underline hover:text-brand">Privacy Policy</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="bg-espresso text-[rgba(250,247,242,.7)] py-16 px-6" role="contentinfo">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12">
+      <!-- Brand -->
+      <div class="lg:col-span-1">
+        <a href="#" class="flex items-center gap-3 mb-6" aria-label="Caffee Phố Trảng Home">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="text-brand">
+            <path d="M8 28C8 31.3137 10.6863 34 14 34H26C29.3137 34 32 31.3137 32 28V18L28 12H12L8 18V28Z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14 18V12C14 9.79086 15.7909 8 18 8H22C24.2091 8 26 9.79086 26 12V18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16 22V26" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M24 22V26" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <ellipse cx="20" cy="15" rx="3" ry="2" stroke="currentColor" stroke-width="1.5" fill="currentColor" fill-opacity="0.3"/>
+          </svg>
+          <div>
+            <div class="font-serif text-brand text-lg leading-tight">Caffee Phố Trảng</div>
+            <div class="text-[10px] uppercase tracking-widest text-[rgba(250,247,242,.5)] font-medium" data-i18n="tagline">PREMIUM COFFEE SHOP</div>
+          </div>
+        </a>
+        <p class="text-sm leading-relaxed max-w-xs" data-i18n="footer.description">Handcrafted beverages, artisan pastries, and a warm atmosphere designed for connection since 2019.</p>
+        <div class="flex items-center gap-4 mt-6" role="list" aria-label="Social media links">
+          <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center transition-colors hover:bg-brand" aria-label="Instagram"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+          <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center transition-colors hover:bg-brand" aria-label="Facebook"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+          <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center transition-colors hover:bg-brand" aria-label="TikTok"><i data-lucide="music" class="w-5 h-5"></i></a>
+          <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center transition-colors hover:bg-brand" aria-label="YouTube"><i data-lucide="youtube" class="w-5 h-5"></i></a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <nav aria-label="Quick links">
+        <h3 class="font-serif text-white text-lg font-medium mb-4" data-i18n="footer.quickLinks">Quick Links</h3>
+        <ul class="space-y-3 text-sm">
+          <li><a href="#" class="hover:text-brand transition-colors" data-i18n="nav.home">Home</a></li>
+          <li><a href="#menu" class="hover:text-brand transition-colors" data-i18n="nav.menu">Menu</a></li>
+          <li><a href="#about" class="hover:text-brand transition-colors" data-i18n="nav.about">About Us</a></li>
+          <li><a href="#locations" class="hover:text-brand transition-colors" data-i18n="nav.locations">Locations</a></li>
+          <li><a href="#events" class="hover:text-brand transition-colors" data-i18n="nav.events">Events</a></li>
+          <li><a href="#contact" class="hover:text-brand transition-colors" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Hours -->
+      <div>
+        <h3 class="font-serif text-white text-lg font-medium mb-4" data-i18n="footer.hours">Opening Hours</h3>
+        <ul class="space-y-3 text-sm">
+          <li class="flex justify-between gap-4"><span data-i18n="footer.hours.weekday">Monday - Friday</span><span class="text-white font-medium">7:00 AM - 9:00 PM</span></li>
+          <li class="flex justify-between gap-4"><span data-i18n="footer.hours.saturday">Saturday</span><span class="text-white font-medium">8:00 AM - 10:00 PM</span></li>
+          <li class="flex justify-between gap-4"><span data-i18n="footer.hours.sunday">Sunday</span><span class="text-white font-medium">8:00 AM - 8:00 PM</span></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <address class="not-italic" aria-label="Contact information">
+        <h3 class="font-serif text-white text-lg font-medium mb-4" data-i18n="footer.contact">Contact Us</h3>
+        <ul class="space-y-3 text-sm">
+          <li class="flex items-start gap-3"><i data-lucide="map-pin" class="w-5 h-5 flex-shrink-0 mt-0.5"></i><span data-i18n="address">Tồ 14, Khu Phố 3A, Phường Trảng Dài, Thành Phố Đồng Nai</span></li>
+          <li class="flex items-center gap-3"><i data-lucide="phone" class="w-5 h-5 flex-shrink-0"></i><a href="tel:+84902950104" class="hover:text-brand transition-colors">+84 902950104</a></li>
+          <li class="flex items-center gap-3"><i data-lucide="mail" class="w-5 h-5 flex-shrink-0"></i><a href="mailto:dotruong.ntev@gmail.com" class="hover:text-brand transition-colors">dotruong.ntev@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="pt-8 border-t border-[rgba(250,247,242,.1)] flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-xs text-[rgba(250,247,242,.5)]" data-i18n="footer.copyright">© 2024 Caffee Phố Trảng. All rights reserved.</p>
+      <div class="flex items-center gap-6 text-xs text-[rgba(250,247,242,.5)]">
+        <a href="#" class="hover:text-brand transition-colors" data-i18n="footer.privacy">Privacy Policy</a>
+        <a href="#" class="hover:text-brand transition-colors" data-i18n="footer.terms">Terms of Service</a>
+        <a href="#" class="hover:text-brand transition-colors" data-i18n="footer.cookies">Cookie Settings</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ===== Translations =====
+const translations = {
+  vi: {
+    // Navigation
+    "nav.home": "Trang chủ",
+    "nav.menu": "Thực đơn",
+    "nav.about": "Về chúng tôi",
+    "nav.locations": "Địa điểm",
+    "nav.events": "Sự kiện",
+    "nav.contact": "Liên hệ",
+    "nav.order": "Đặt hàng online",
+    
+    // Tagline
+    "tagline": "QUÁN CÀ PHÊ ĐẶC SẢN",
+    
+    // Hero
+    "hero.eyebrow": "TRẢI NGHIỆM CÀ PHÊ ĐẲNG CẤP",
+    "hero.headline.part1": "Không Chỉ Là ",
+    "hero.headline.part2": "Cà Phê",
+    "hero.subtitle": "Đồ uống thủ công, bánh mì nghệ thuật, và không gian ấm cúng được thiết kế để kết nối. Mỗi ly cà phê đều kể một câu chuyện.",
+    "hero.cta.primary": "Đặt Hàng Ngay",
+    "hero.cta.secondary": "Tìm Quán Cà Phê",
+    "hero.features.specialty": "Cà Phê Đặc Sản",
+    "hero.features.fresh": "Đồ Ăn Tươi",
+    "hero.features.work": "Thích Hợp Làm Việc",
+    "hero.features.cozy": "Không Gian Ấm Cúng",
+    
+    // Drinks
+    "drinks.eyebrow": "Thực Đơn Của Chúng Tôi",
+    "drinks.title": "Các Món Đặc Trưng",
+    "drinks.viewAll": "Xem Toàn Bộ Thực Đơn",
+    "drinks.items.cappuccino": "Cappuccino Truyền Thống",
+    "drinks.items.macchiato": "Caramel Macchiato",
+    "drinks.items.matcha": "Matcha Latte",
+    "drinks.items.mocha": "Mocha Thơm Ngon",
+    "drinks.items.coldbrew": "Cold Brew",
+    
+    // About
+    "about.eyebrow": "CAFFEE PHỐ TRẢNG",
+    "about.headline.part1": "Quán Cà Phê Hiện Đại Dành Cho ",
+    "about.headline.part2": "Những Người Yêu Cà Phê",
+    "about.description": "Được thành lập năm 2019, Caffee Phố Trảng bắt đầu với sứ mệnh đơn giản: tạo ra không gian nơi cà phê tuyệt vời gặp gỡ hiếu khách chân thành. Chúng tôi nhập hạt cà phê trực tiếp từ các trang trại bền vững tại Colombia, Ethiopia và Guatemala, rang xay tại chỗ để tiết lộ hương vị độc đáo.",
+    "about.cta": "Câu Chuyện Của Chúng Tôi",
+    
+    // Values
+    "values.title": "Điều Gì Làm Chúng Tôi Khác Biệt",
+    "values.items.beans.title": "Hạt Cà Phê Cao Cấp",
+    "values.items.beans.desc": "Nhập Khẩu Toàn Cầu",
+    "values.items.baristas.title": "Barista Chuyên Nghiệp",
+    "values.items.baristas.desc": "Được Đào Tạo Tận Tâm",
+    "values.items.ingredients.title": "Nguyên Liệu Tươi Sống",
+    "values.items.ingredients.desc": "Chất Lượng Được Đảm Bảo",
+    "values.items.space.title": "Không Gian Kết Nối",
+    "values.items.space.desc": "Thư Giãn & Thư Thả",
+    
+    // Bestsellers
+    "bestsellers.eyebrow": "Bán Chạy Nhất",
+    "bestsellers.title": "Món Ăn Vừa Làm Vừa Ăn",
+    "bestsellers.viewAll": "Xem Tất Cả",
+    "bestsellers.items.croissant.title": "Bánh Sừng Bơ",
+    "bestsellers.items.croissant.desc": "Giòn tan, béo bơ, làm tươi mỗi ngày",
+    "bestsellers.items.cake.title": "Bánh Socola",
+    "bestsellers.items.cake.desc": "Socola Valrhona đậm đà, tâm mềm mịn",
+    "bestsellers.items.sandwich.title": "Bánh Mì Rau Củ Nướng",
+    "bestsellers.items.sandwich.desc": "Rau củ theo mùa, sốt aioli, bánh mì que",
+    
+    // Testimonials
+    "testimonials.eyebrow": "Phản Hồi Khách Hàng",
+    "testimonials.title": "Khách Hàng Nói Gì Về Chúng Tôi",
+    "testimonials.items.emily": "\"Caffee Phố Trảng đã trở thành nhà thứ hai của tôi. Ly cappuccino hoàn hảo, và không gian khiến mỗi lần ghé thăm như một kỳ nghỉ nhỏ.\"",
+    "testimonials.items.james": "\"Ly matcha latte ngon nhất thành phố. Barista nhớ đơn của tôi, và bánh mì rau nướng là món trưa yêu thích. Rất khuyến khích!\"",
+    "testimonials.items.sophia": "\"Nơi lý tưởng để làm việc từ xa. WiFi nhanh, cà phê ngon, và bánh socola ngon đến mức 'chết người'. Nhân viên khiến bạn cảm thấy như gia đình.\"",
+    
+    // Newsletter
+    "newsletter.headline.part1": "Theo Dõi ",
+    "newsletter.headline.part2": "Nhịp Đập Cà Phê!",
+    "newsletter.description": "Nhận ưu đãi độc quyền, thông báo món mới, và mẹo pha cà phê trực tiếp vào hộp thư. Không spam, chỉ có cà phê tốt.",
+    "newsletter.emailLabel": "Địa chỉ email",
+    "newsletter.privacy": "Bằng cách đăng ký, bạn đồng ý với <a href=\"#\" class=\"underline hover:text-brand\">Chính Sách Bảo Mật</a> của chúng tôi.",
+    
+    // Footer
+    "footer.description": "Đồ uống thủ công, bánh mì nghệ thuật, và không gian ấm cúng được thiết kế để kết nối từ năm 2019.",
+    "footer.quickLinks": "Liên Kết Nhanh",
+    "footer.hours": "Giờ Mở Cửa",
+    "footer.hours.weekday": "Thứ Hai - Thứ Sáu",
+    "footer.hours.saturday": "Thứ Bảy",
+    "footer.hours.sunday": "Chủ Nhật",
+    "footer.contact": "Liên Hệ Với Chúng Tôi",
+    "footer.privacy": "Chính Sách Bảo Mật",
+    "footer.terms": "Điều Khoản Sử Dụng",
+    "footer.cookies": "Cài Đặt Cookie",
+    "footer.copyright": "© 2024 Caffee Phố Trảng. Bảo lưu mọi quyền.",
+    
+    // Address (same in both languages)
+    "address": "Tồ 14, Khu Phố 3A, Phường Trảng Dài, Thành Phố Đồng Nai"
+  },
+  en: {
+    // Navigation
+    "nav.home": "Home",
+    "nav.menu": "Menu",
+    "nav.about": "About Us",
+    "nav.locations": "Locations",
+    "nav.events": "Events",
+    "nav.contact": "Contact",
+    "nav.order": "Order Online",
+    
+    // Tagline
+    "tagline": "PREMIUM COFFEE SHOP",
+    
+    // Hero
+    "hero.eyebrow": "PREMIUM COFFEE EXPERIENCE",
+    "hero.headline.part1": "More Than ",
+    "hero.headline.part2": "Just Coffee",
+    "hero.subtitle": "Handcrafted beverages, artisan pastries, and a warm atmosphere designed for connection. Every cup tells a story.",
+    "hero.cta.primary": "Order Online",
+    "hero.cta.secondary": "Find a Café",
+    "hero.features.specialty": "Specialty Coffee",
+    "hero.features.fresh": "Fresh Food",
+    "hero.features.work": "Work Friendly",
+    "hero.features.cozy": "Cozy Ambience",
+    
+    // Drinks
+    "drinks.eyebrow": "Our Menu",
+    "drinks.title": "Our Signature Drinks",
+    "drinks.viewAll": "View Full Menu",
+    "drinks.items.cappuccino": "Classic Cappuccino",
+    "drinks.items.macchiato": "Caramel Macchiato",
+    "drinks.items.matcha": "Matcha Latte",
+    "drinks.items.mocha": "Mocha Delight",
+    "drinks.items.coldbrew": "Cold Brew",
+    
+    // About
+    "about.eyebrow": "THE COFFEE LOUNGE",
+    "about.headline.part1": "A Modern Café for ",
+    "about.headline.part2": "Coffee Lovers",
+    "about.description": "Founded in 2019, Caffee Phố Trảng began with a simple mission: to create a space where exceptional coffee meets genuine hospitality. We source our beans directly from sustainable farms across Colombia, Ethiopia, and Guatemala, roasting them in-house to bring out their unique character.",
+    "about.cta": "Our Story",
+    
+    // Values
+    "values.title": "What Makes Us Special",
+    "values.items.beans.title": "Premium Beans",
+    "values.items.beans.desc": "Sourced Globally",
+    "values.items.baristas.title": "Expert Baristas",
+    "values.items.baristas.desc": "Trained to Perfection",
+    "values.items.ingredients.title": "Fresh Ingredients",
+    "values.items.ingredients.desc": "Quality Guaranteed",
+    "values.items.space.title": "A Space to Connect",
+    "values.items.space.desc": "Relax & Unwind",
+    
+    // Bestsellers
+    "bestsellers.eyebrow": "Bestsellers",
+    "bestsellers.title": "Freshly Made Delights",
+    "bestsellers.viewAll": "View All",
+    "bestsellers.items.croissant.title": "Butter Croissant",
+    "bestsellers.items.croissant.desc": "Flaky, buttery, baked fresh daily",
+    "bestsellers.items.cake.title": "Chocolate Cake",
+    "bestsellers.items.cake.desc": "Rich Valrhona chocolate, fudgy center",
+    "bestsellers.items.sandwich.title": "Grilled Veg Sandwich",
+    "bestsellers.items.sandwich.desc": "Seasonal vegetables, herb aioli, sourdough",
+    
+    // Testimonials
+    "testimonials.eyebrow": "Testimonials",
+    "testimonials.title": "What Our Guests Say",
+    "testimonials.items.emily": "\"Caffee Phố Trảng has become my second home. The cappuccino is perfection, and the atmosphere makes every visit feel like a mini vacation.\"",
+    "testimonials.items.james": "\"Best matcha latte in the city. The baristas remember my order, and the grilled veg sandwich is my go-to lunch. Highly recommend!\"",
+    "testimonials.items.sophia": "\"Perfect spot for remote work. Fast WiFi, great coffee, and the chocolate cake is to die for. The staff makes you feel like family.\"",
+    
+    // Newsletter
+    "newsletter.headline.part1": "Stay in the ",
+    "newsletter.headline.part2": "Coffee Loop!",
+    "newsletter.description": "Get exclusive offers, new drink alerts, and brewing tips delivered straight to your inbox. No spam, just good coffee.",
+    "newsletter.emailLabel": "Email address",
+    "newsletter.privacy": "By subscribing, you agree to our <a href=\"#\" class=\"underline hover:text-brand\">Privacy Policy</a>.",
+    
+    // Footer
+    "footer.description": "Handcrafted beverages, artisan pastries, and a warm atmosphere designed for connection since 2019.",
+    "footer.quickLinks": "Quick Links",
+    "footer.hours": "Opening Hours",
+    "footer.hours.weekday": "Monday - Friday",
+    "footer.hours.saturday": "Saturday",
+    "footer.hours.sunday": "Sunday",
+    "footer.contact": "Contact Us",
+    "footer.privacy": "Privacy Policy",
+    "footer.terms": "Terms of Service",
+    "footer.cookies": "Cookie Settings",
+    "footer.copyright": "© 2024 Caffee Phố Trảng. All rights reserved.",
+    
+    // Address
+    "address": "Tồ 14, Khu Phố 3A, Phường Trảng Dài, Thành Phố Đồng Nai"
+  }
+};
+
+// ===== Language Management =====
+let currentLang = localStorage.getItem('lang') || 'vi';
+
+function setLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem('lang', lang);
+  document.documentElement.lang = lang;
+  
+  // Update all elements with data-i18n
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[lang][key]) {
+      // Handle nested HTML (like italic spans)
+      if (el.innerHTML.includes('<span') || el.innerHTML.includes('<i ')) {
+        // For complex elements, we need to be more careful
+        // Just update textContent for simple cases
+        if (el.childElementCount === 0) {
+          el.textContent = translations[lang][key];
+        }
+      } else {
+        el.textContent = translations[lang][key];
+      }
+    }
+  });
+  
+  // Update elements with data-i18n-attr (for attributes like placeholder, aria-label, title)
+  document.querySelectorAll('[data-i18n-attr]').forEach(el => {
+    const attrString = el.getAttribute('data-i18n-attr');
+    const attrs = attrString.split(',');
+    attrs.forEach(attr => {
+      const [attrName, key] = attr.split(':');
+      if (translations[lang][key]) {
+        if (attrName === 'aria-label' || attrName === 'placeholder' || attrName === 'title') {
+          el.setAttribute(attrName, translations[lang][key]);
+        }
+      }
+    });
+  });
+  
+  // Update language switcher buttons
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    const btnLang = btn.getAttribute('data-lang');
+    btn.classList.toggle('active', btnLang === lang);
+    btn.setAttribute('aria-pressed', btnLang === lang);
+  });
+  
+  // Re-initialize Lucide icons after DOM changes
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
+}
+
+// Initialize language on load
+setLanguage(currentLang);
+
+// ===== Language Switcher Event Listeners =====
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const lang = btn.getAttribute('data-lang');
+    if (lang !== currentLang) {
+      setLanguage(lang);
+    }
+  });
+});
+
+// ===== Lucide Icons =====
+lucide.createIcons();
+
+// ===== Reveal on Scroll =====
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const revealElements = document.querySelectorAll('.reveal');
+
+if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  revealElements.forEach(el => observer.observe(el));
+} else {
+  revealElements.forEach(el => el.classList.add('is-visible'));
+}
+
+// ===== Mobile Menu Toggle =====
+const mobileMenuBtn = document.querySelector('[aria-controls="mobile-menu"]');
+const mobileMenu = document.getElementById('mobile-menu');
+if (mobileMenuBtn && mobileMenu) {
+  mobileMenuBtn.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('hidden');
+    mobileMenuBtn.setAttribute('aria-expanded', !isOpen);
+    mobileMenuBtn.innerHTML = isOpen ? '<i data-lucide="menu" class="w-6 h-6"></i>' : '<i data-lucide="x" class="w-6 h-6"></i>';
+    lucide.createIcons();
+  });
+}
+
+// ===== Smooth Scroll for Anchor Links =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const targetId = this.getAttribute('href');
+    if (targetId === '#') return;
+    const target = document.querySelector(targetId);
+    if (target) {
+      e.preventDefault();
+      const headerHeight = document.querySelector('header').offsetHeight;
+      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+      window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+      // Close mobile menu if open
+      if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.add('hidden');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        mobileMenuBtn.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
+        lucide.createIcons();
+      }
+    }
+  });
+});
+
+// ===== Hero Carousel =====
+const heroDots = document.querySelectorAll('.carousel-dot[data-slide]');
+const heroImageDesktop = document.querySelector('.hidden.lg\\:block img');
+const heroImageMobile = document.querySelector('.lg\\:hidden img');
+const heroImages = [
+  { desktop: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1600&q=80', mobile: 'https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=800&q=80' },
+  { desktop: 'https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=1600&q=80', mobile: 'https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=800&q=80' },
+  { desktop: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55c?auto=format&fit=crop&w=1600&q=80', mobile: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55c?auto=format&fit=crop&w=800&q=80' }
+];
+
+let heroCurrentSlide = 0;
+let heroAutoPlayInterval;
+
+function heroGoToSlide(index) {
+  heroCurrentSlide = index;
+  heroDots.forEach((dot, i) => {
+    dot.classList.toggle('active', i === index);
+    dot.setAttribute('aria-selected', i === index);
+  });
+  if (heroImageDesktop) {
+    heroImageDesktop.style.opacity = '0';
+    setTimeout(() => {
+      heroImageDesktop.src = heroImages[index].desktop;
+      heroImageDesktop.style.opacity = '1';
+    }, 200);
+  }
+  if (heroImageMobile) {
+    heroImageMobile.style.opacity = '0';
+    setTimeout(() => {
+      heroImageMobile.src = heroImages[index].mobile;
+      heroImageMobile.style.opacity = '1';
+    }, 200);
+  }
+}
+
+heroDots.forEach((dot, i) => {
+  dot.addEventListener('click', () => {
+    heroGoToSlide(i);
+    resetHeroAutoPlay();
+  });
+});
+
+function heroNextSlide() {
+  const next = (heroCurrentSlide + 1) % heroImages.length;
+  heroGoToSlide(next);
+}
+
+function resetHeroAutoPlay() {
+  clearInterval(heroAutoPlayInterval);
+  heroAutoPlayInterval = setInterval(heroNextSlide, 5000);
+}
+
+resetHeroAutoPlay();
+
+// Pause on hover
+const heroSection = document.querySelector('section[aria-labelledby="hero-heading"]');
+if (heroSection) {
+  heroSection.addEventListener('mouseenter', () => clearInterval(heroAutoPlayInterval));
+  heroSection.addEventListener('mouseleave', resetHeroAutoPlay);
+}
+
+// ===== Testimonial Carousel =====
+const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+const testimonialDots = document.querySelectorAll('.carousel-dot[data-dot]');
+const testimonialPrev = document.querySelector('[data-testimonial-prev]');
+const testimonialNext = document.querySelector('[data-testimonial-next]');
+let testimonialCurrentSlide = 0;
+let testimonialAutoPlayInterval;
+
+function testimonialGoToSlide(index) {
+  testimonialCurrentSlide = index;
+  testimonialSlides.forEach((slide, i) => {
+    slide.classList.toggle('hidden', i !== index);
+  });
+  testimonialDots.forEach((dot, i) => {
+    dot.classList.toggle('active', i === index);
+    dot.setAttribute('aria-selected', i === index);
+  });
+}
+
+testimonialDots.forEach((dot, i) => {
+  dot.addEventListener('click', () => {
+    testimonialGoToSlide(i);
+    resetTestimonialAutoPlay();
+  });
+});
+
+function testimonialNextSlide() {
+  const next = (testimonialCurrentSlide + 1) % testimonialSlides.length;
+  testimonialGoToSlide(next);
+}
+
+function testimonialPrevSlide() {
+  const prev = (testimonialCurrentSlide - 1 + testimonialSlides.length) % testimonialSlides.length;
+  testimonialGoToSlide(prev);
+}
+
+if (testimonialNext) testimonialNext.addEventListener('click', () => { testimonialNextSlide(); resetTestimonialAutoPlay(); });
+if (testimonialPrev) testimonialPrev.addEventListener('click', () => { testimonialPrevSlide(); resetTestimonialAutoPlay(); });
+
+function resetTestimonialAutoPlay() {
+  clearInterval(testimonialAutoPlayInterval);
+  testimonialAutoPlayInterval = setInterval(testimonialNextSlide, 6000);
+}
+
+resetTestimonialAutoPlay();
+
+// Pause on hover
+const testimonialCard = document.querySelector('.testimonial-card');
+if (testimonialCard) {
+  testimonialCard.addEventListener('mouseenter', () => clearInterval(testimonialAutoPlayInterval));
+  testimonialCard.addEventListener('mouseleave', resetTestimonialAutoPlay);
+}
+
+// ===== Keyboard Navigation for Carousels =====
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowLeft') {
+    if (document.activeElement.matches('[data-testimonial-prev], [data-testimonial-next], [data-dot]')) {
+      testimonialPrevSlide(); resetTestimonialAutoPlay();
+    }
+  }
+  if (e.key === 'ArrowRight') {
+    if (document.activeElement.matches('[data-testimonial-prev], [data-testimonial-next], [data-dot]')) {
+      testimonialNextSlide(); resetTestimonialAutoPlay();
+    }
+  }
+});
+
+// ===== Newsletter Form =====
+const newsletterForm = document.querySelector('footer form, section form');
+if (newsletterForm) {
+  newsletterForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const input = newsletterForm.querySelector('input[type="email"]');
+    const btn = newsletterForm.querySelector('button[type="submit"]');
+    if (input && input.value) {
+      const originalHTML = btn.innerHTML;
+      btn.innerHTML = '<i data-lucide="check" class="w-5 h-5"></i>';
+      lucide.createIcons();
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.innerHTML = originalHTML;
+        lucide.createIcons();
+        btn.disabled = false;
+        input.value = '';
+      }, 2000);
+    }
+  });
+}
+
+// ===== Active Nav Link on Scroll =====
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+
+if (!prefersReducedMotion && sections.length && navLinks.length) {
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+        });
+      }
+    });
+  }, { threshold: 0.3, rootMargin: '-100px 0px -60% 0px' });
+
+  sections.forEach(section => navObserver.observe(section));
+}
+</script>
+</body>
+</html>
